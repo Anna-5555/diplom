@@ -12,7 +12,7 @@ def test_api_book_by_author(api_base_url, api_headers):
         f"{api_base_url}search/product?phrase=джоан роулинг", headers=api_headers
         )
 
-    with allure.step("Проверка статус кода 200"):
+    with allure.step("Проверка статус кода 200  и по запросу 'джоан роулинг'"):
         assert resp.status_code == 200
         assert 'джоан роулинг' in resp.text
 
@@ -25,7 +25,7 @@ def test_api_book_by_title(api_base_url, api_headers):
         resp = requests.get(
         f"{api_base_url}search/product?phrase=капитанская дочка", headers=api_headers
         )
-    with allure.step("Проверка статус кода 200"):
+    with allure.step("Проверка статус кода 200 и по запросу 'капитанская дочка'"):
         assert resp.status_code == 200
         assert 'капитанская дочка' in resp.text
 
@@ -41,7 +41,7 @@ def test_search_by_language_english(api_base_url, api_headers):
         f"{api_base_url}search/product?phrase=The lord of rings", headers=api_headers
         )
 
-    with allure.step("Проверка статус кода 200"):
+    with allure.step("Проверка статус кода 200 и по запросу 'The Lord of the Rings'"):
         assert resp.status_code == 200
         assert 'The Lord of the Rings' in resp.text
 
